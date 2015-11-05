@@ -1,0 +1,23 @@
+group[1] = "Каролина"
+group[2] = "Илья"
+group[3] = "Александр"
+group[4] = "Маша"
+group[5] = "Петя"
+count = Array.GetItemCount(group) ' возвращает количество элементов в массиве
+
+'group = "это не массив, а простая строка"
+If Array.IsArray(group) Then ' проверяет является ли переменная массивом
+  For i=1 To count
+    TextWindow.WriteLine(group[i])
+  EndFor
+Else
+  TextWindow.WriteLine(group)
+EndIf
+
+if Array.ContainsIndex(group, 5) Then ' проверяет содержится ли в массиве group индекс 5
+  TextWindow.WriteLine(group[5])
+EndIf
+
+if Array.ContainsValue(group, "Василий") Then ' проверяет содержится ли в массиве group элемент "Василий"
+  TextWindow.WriteLine("Василий учится в группе")
+EndIf

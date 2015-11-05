@@ -1,0 +1,13 @@
+
+For строка=1 To 10
+  For столбец=1 To 10
+    таблица_умножения[строка][столбец] = строка * столбец
+  EndFor
+EndFor
+
+For строка=1 To 10
+  For столбец=1 To 10
+    TextWindow.Write(таблица_умножения[строка][столбец] + " ")
+  EndFor
+  TextWindow.WriteLine("")
+EndFor

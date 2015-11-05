@@ -1,17 +1,17 @@
 'Задать максимальную скорость черепашки --#4
-Turtle.Speed = 10
+
 'Вызвать операцию CreateColorPalette (инструкция внизу) --#6
-CreateColorPalette()
+
 'Начать повторение 30 раз --#10
-For i = 1 to 30
+
   ' Установить следующий цвет пера вызвав операцию NextColor --#5
-  NextColor()
+
   'Вызвать метод DrawOctagonWithOverlap (инструкция внизу) --#8
-  DrawOctagonWithOverlap()
+
   'Повернуть черепашку на  1/30от 360 градусов --#9
-  Turtle.Turn(360/30)
+
   ' Повернуть черепашку еще на 5 градусов  --#11
-  Turtle.Turn(5)
+
   'Конец повторение 30 раз --#10
 EndFor
 
@@ -28,33 +28,33 @@ EndSub
 '------------- Инструкция для операции CreateColorPalette --#6
 Sub CreateColorPalette
   ' Добавить цвет hotpink к массиву ColorWheel --#6
-  ColorWheel[1] = "HotPink"
-  ' Add red to the color wheel --#12
-  ColorWheel[2] = "Red"
-  ' Add fuchsia to the color wheel --#13
-  ColorWheel[3] = "Fuchsia"
-  ' Add orange red to the color wheel --#14
-  ColorWheel[4] = "OrangeRed"
-  ' Add deep pink to the color wheel --#15
-  ColorWheel[5] = "DeepPink"
-  ' Add medium violet red to the color wheel --#16
-  ColorWheel[6] = "MediumVioletRed"
-  ' Add crimson to the color wheel --#17
-  ColorWheel[7] = "Crimson"
-  ' Add tomato to the color wheel --#18
-  ColorWheel[8] = "Tomato"
+
+  ' Добавить цвет red к массиву ColorWheel --#12
+
+  ' Добавить цвет fuchsia к массиву ColorWheel  --#13
+
+  ' Добавить цвет orangered к массиву ColorWheel  --#14
+
+  ' Добавить цвет deeppink к массиву ColorWheel  --#15
+
+  ' Добавить цвет mediumvioletred к массиву ColorWheel  --#16
+
+  ' Добавить цвет crimson к массиву ColorWheel --#17
+ 
+  ' Добавить цвет tomato к массиву ColorWheel  --#18
+
   '------------- Конец инструкции для операции CreateColorPalette --#6
 EndSub
 
 '------------- Инструкция для операции  DrawOctagonWithOverlap --#7
 Sub DrawOctagonWithOverlap
   ' Начать повторение 9 раз --#3
-  For j=1 To 9
+
     'Переместить черепашку на 110 пикселей --#1
-    Turtle.Move(110)
+
     'Повернуть черепашку на  1/8 от 360 градусов --#2
-    Turtle.Turn(360/8)
+
     ' Repeat --#3
-  EndFor
+
   '------------- Конец инструкции для операции CreateColorPalette DrawOctagonWithOverlap --#7
 EndSub
