@@ -1,0 +1,26 @@
+' перекресный вызво подпрограмм
+Turtle.Speed = 10
+
+DrawRotateRect()
+
+Sub DrawRotateRect
+  For k=1 To 6
+    Draw4Rect()
+    Turtle.Turn(360/6)
+  EndFor
+EndSub
+
+Sub Draw4Rect
+  For j=1 To 4
+    GraphicsWindow.PenColor = GraphicsWindow.GetRandomColor()
+    height = 50 * j
+    DrawRect()
+  EndFor
+EndSub
+
+Sub DrawRect
+  For i=1 To 4
+    Turtle.Move(height)
+    Turtle.TurnRight()
+  EndFor 
+EndSub

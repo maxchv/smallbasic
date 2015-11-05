@@ -1,0 +1,16 @@
+*.lastbuildstate
+*.tlog
+*.pch
+*.idb
+*.filters
+*.pdb
+*.obj
+*.exe
+*.ilk
+*.rar
+*.ipch
+*.log
+*.bin
+*.opensdf
+*.dll
+*.so

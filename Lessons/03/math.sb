@@ -1,0 +1,26 @@
+' Математические операции
+
+x = Math.SquareRoot(121) ' квадратный корень числа 121
+TextWindow.WriteLine(x)
+x = Math.Abs(-1) ' вычисляет модуль числа
+TextWindow.WriteLine(x)
+x = Math.Ceiling(33.1)  ' округление в большую сторону
+TextWindow.WriteLine(x)
+x = Math.Floor(33.1)     'округление в меньшую сторону
+TextWindow.WriteLine(x)
+' случайное число в диапазоне от 1 до 10
+x = Math.GetRandomNumber(10)
+TextWindow.WriteLine(x)
+x = Math.Power(2, 3)    ' возведение 2 в степень 3
+TextWindow.WriteLine(x)
+x = Math.Remainder(61, 60)  ' остаток от деления 61 на 60 будет 1
+TextWindow.WriteLine(x)
+
+' Пример применения операций для перевода времени представленного
+' в секундах в минуты и секунды
+t = 68
+m = Math.Floor(t / 60)
+s = Math.Remainder(t, 60)
+TextWindow.WriteLine(m + ":" + s)
+
+' Д/з Написать игру Камень, ножницы, бумага

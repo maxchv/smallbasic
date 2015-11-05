@@ -1,0 +1,4 @@
+TextWindow.WriteLine("Это моя первая программа в SmallBasic")
+TextWindow.WriteLine("Как тебя зовут?")
+текст = TextWindow.Read()
+TextWindow.WriteLine(текст)

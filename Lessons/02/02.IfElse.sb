@@ -1,0 +1,29 @@
+' условная команда 
+'If <условие1> Then
+'  <команды при выполнении условия 1>
+'EndIf
+a = 12
+b = 12
+
+If a > b Then
+  TextWindow.WriteLine("a > b")
+ElseIf a < b Then
+  TextWindow.WriteLine("a < b")
+Else
+  TextWindow.WriteLine("a = b")
+EndIf
+'Домашнее задание
+'Написать программу выводящая приветственное сообщение
+'пользователю в зависимости от времени суток
+
+' Алгоритм программы:
+'    если Clock.Hour > 0 и Clock.Hour < 12 - Доброе утро
+'    иначе  если Clock.Hour > 12 и Clock.Hour < 16 - Доброый день
+'    иначе  если Clock.Hour > 16 и Clock.Hour < 21 - Доброый вечер
+'   иначе  Доброй ночи
+
+'Пример:
+  If Clock.Hour > 16 And Clock.Hour < 21 Then
+    TextWindow.WriteLine("Добрый вечер")
+  EndIf
+  

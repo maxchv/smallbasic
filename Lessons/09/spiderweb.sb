@@ -1,0 +1,47 @@
+' Задать максимальную скорость черепашки --#8
+Turtle.Speed = 10
+'Установить ширину пера черепашки равной 1 пиксель--#14
+GraphicsWindow.PenWidth = 2
+'Задать цвет пера silver --#15
+GraphicsWindow.PenColor = "silver"
+'Задать переменнюу length (длинна) равную 10 пикселям --#1.1
+length = 10
+'Задать перемунную zoom равную 1 --#9.1
+zoom = 1
+'Повторять 10 раз --#12
+For k = 1 to 10
+  GraphicsWindow.PenColor = GraphicsWindow.GetRandomColor()
+  'Вызвать процедуру WeaveOneLayer (инструкция внизу) --#11
+  WeaveOneLayer()
+  ' Изменить переменную zoom на zoom * 1.3 --#13
+ zoom = zoom*1.3
+  'Повторить --#12
+EndFor
+
+'------------- Инструкция WeaveOneLayer --#10
+Sub WeaveOneLayer
+  'Повторить 6 раз --#7
+  For j=1 To 6
+    ' Вызвать процедуру DrawTriangle (инструкция внизу) --#5
+    DrawTriangle()
+    'Повернуть черепашку на угол 60 градусов--#6
+    Turtle.Turn(60)
+    ' Увеличить длинну length на величину length + zoom --#9
+    length = length + zoom
+    'Повторить --#7 
+  EndFor
+  '------------- Конец инструкции WeaveOneLayer --#10
+EndSub
+
+'------------- Инструкция для DrawTriangle --#4
+Sub DrawTriangle
+  'Повторять 3 раза --#3
+  For i=1 To 3
+    'Переместить черепашку на расстояние length --#1
+    Turtle.Move(length)
+    'Повернуть черепашку на 120 градусов --#2
+    Turtle.Turn(120)
+    ' Повторить --#3
+  EndFor
+  '------------- Конец инструкции DrawTriangle --#4
+EndSub

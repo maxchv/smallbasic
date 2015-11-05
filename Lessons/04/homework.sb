@@ -1,0 +1,37 @@
+побед = 0
+While 1=1
+  TextWindow.WriteLine("1-Камень")
+  TextWindow.WriteLine("2-Ножницы")
+  TextWindow.WriteLine("3-Бумага")
+  TextWindow.WriteLine("Введи число:")
+  y = TextWindow.Read()
+  x = Math.GetRandomNumber(3)
+  TextWindow.Clear()
+  If y = 1 and x = 1 Then 
+    TextWindow.WriteLine("Камень-Ничья")
+  elseIf y = 1 And x = 2 Then
+    TextWindow.WriteLine("Ножницы-Победа")
+    побед = побед + 1
+  elseIf y = 1 And x = 3 Then
+    TextWindow.WriteLine("Бумага-Поражение")
+    побед = побед - 1
+  elseIf y = 2 And x = 1 Then
+    TextWindow.WriteLine("Камень-Поражение")
+    побед = побед - 1
+  elseIf y = 2 And x = 2 Then
+    TextWindow.WriteLine("Ножницы-Ничья")
+  elseIf y = 2 And x = 3 Then
+    TextWindow.WriteLine("Бумага-Победа")
+    побед = побед + 1
+  elseIf y = 3 And x = 1 Then
+    TextWindow.WriteLine("Камень-Победа")
+    побед = побед + 1
+  elseIf y = 3 And x = 2 Then
+    TextWindow.WriteLine("Ножницы-Поражение")
+    побед = побед - 1
+  elseIf y = 3 And x = 3 Then
+    TextWindow.WriteLine("Бумага-Ничья") 
+  EndIf  
+  
+  TextWindow.WriteLine("Побед: " +  побед)
+EndWhile

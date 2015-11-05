@@ -1,0 +1,8 @@
+
+While 1=1  
+  TextWindow.Clear()          ' Очистка экрана
+  TextWindow.Write("Сейчас: ")
+  TextWindow.WriteLine(Clock.Time)' Вывод времени
+  Program.Delay(1000)         ' Задержка 1000 мс = 1 сек
+EndWhile
+  

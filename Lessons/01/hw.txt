@@ -1,0 +1,3 @@
+Установить программу SmallBasic на домашний компьютер.
+Инсталлятор скачать по адресу http://social.technet.microsoft.com/wiki/contents/articles/30513.download-microsoft-small-basic.aspx
+Прислать скриншот установленной программы

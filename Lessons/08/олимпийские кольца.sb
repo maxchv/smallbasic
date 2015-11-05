@@ -1,0 +1,53 @@
+' Показать черепашку --#1
+Turtle.Show()
+' Задать максимльную скорость черепашки --#6
+Turtle.Speed = 10
+GraphicsWindow.PenWidth = 5
+
+GraphicsWindow.PenColor = "blue"
+drawCircle()
+moveLeft()
+
+GraphicsWindow.PenColor = "red"
+drawCircle()
+moveLeft()
+
+GraphicsWindow.PenColor = "green"
+drawCircle()
+
+Turtle.TurnRight()
+Turtle.PenUp()
+Turtle.Move(120)
+Turtle.TurnRight()
+Turtle.Move(105)
+Turtle.TurnRight()
+Turtle.Move(60)
+Turtle.TurnRight()
+Turtle.PenDown()
+
+GraphicsWindow.PenColor = "yellow"
+drawCircle()
+
+Turtle.PenUp()
+Turtle.TurnRight()
+Turtle.Move(120)
+Turtle.TurnLeft()
+Turtle.PenDown()
+
+GraphicsWindow.PenColor = "magenta"
+drawCircle()
+
+Sub drawCircle
+  For i=1 To 360
+    Turtle.Move(2)
+    Turtle.Turn(1)
+  EndFor
+EndSub
+
+Sub moveLeft
+  Turtle.TurnLeft()
+  Turtle.PenUp()
+  Turtle.Move(120)
+  Turtle.TurnRight()
+  Turtle.PenDown()
+EndSub  
