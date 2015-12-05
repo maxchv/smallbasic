@@ -1,0 +1,17 @@
+
+tb = Controls.AddTextBox(10, 10)
+Controls.AddButton("Click",10, 50)
+Controls.ButtonClicked = Clicked
+word = "test"
+Sub Clicked
+  txt = Controls.GetTextBoxText(tb)
+  For i=1 To Text.GetLength(word)
+    letter = Text.GetSubText(word, i, 1)
+    If letter = txt Then
+      GraphicsWindow.DrawText(i*10, 100, letter)
+    Else
+      GraphicsWindow.DrawText(i*10, 100, "_")
+    EndIf     
+  EndFor  
+EndSub
+  

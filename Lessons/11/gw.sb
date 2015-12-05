@@ -1,0 +1,37 @@
+' Объект GraphicsWindow
+
+' Основные свойства объекта GraphicsWindow
+GraphicsWindow.BackgroundColor = "yellow" ' задает фон окна
+GraphicsWindow.BrushColor = "green" ' задает цвет кисти 
+GraphicsWindow.CanResize = "False" ' можно ли изменить размер окна
+                                  ' "True" - возможно
+                                  ' "False"  - нельзя измерить размер окна
+
+GraphicsWindow.Height = 600       ' высота окна (в пикселях)     
+GraphicsWindow.Width  = 800       ' ширина окна
+GraphicsWindow.PenColor = "blue"  ' цвет пера
+GraphicsWindow.PenWidth = 3       ' толщина пера в пикселях
+GraphicsWindow.Top = 100          ' расстояние от верхней границы рабочего стола до окна
+GraphicsWindow.Left = 100         ' расстояние от левой границы рабочего стола до окна
+
+' Операции GhaphicsWindow
+GraphicsWindow.FillEllipse(10, 10, 100, 150)
+GraphicsWindow.DrawEllipse(10, 10, 100, 150)
+
+GraphicsWindow.BrushColor = "white"
+GraphicsWindow.FillRectangle(120, 10, 100, 150)
+GraphicsWindow.PenColor = "magenta"
+GraphicsWindow.DrawRectangle(120, 10, 100, 150)
+
+GraphicsWindow.DrawLine(20, 20, 100, 100)
+GraphicsWindow.BrushColor = "green"
+GraphicsWindow.FontSize = 20
+GraphicsWindow.DrawText(10, 150, "Этот текст выводится на экран")
+
+' вывод изображения из файла boy.jpg 
+GraphicsWindow.DrawImage(Program.Directory+"\\boy.jpg", 200, 10)
+GraphicsWindow.DrawImage("http://ak-hdl.buzzfed.com/static/2014-02/enhanced/webdr03/28/10/enhanced-3109-1393601952-3.jpg", 200, 200)
+GraphicsWindow.DrawResizedImage("http://ak-hdl.buzzfed.com/static/2014-02/enhanced/webdr03/28/10/enhanced-3109-1393601952-3.jpg", 200, 200, 100, 100)
+GraphicsWindow.Show()     
+
+Controls.AddTextBox(10, 10)
