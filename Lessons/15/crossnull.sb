@@ -1,0 +1,45 @@
+' Домашнее задание: реализовать все условия в обработчике события MouseDown
+'Добавить крестики в соответствующие квадраты поля при нажатии на них мышкой
+'
+
+w = 600
+GraphicsWindow.Title="Игра Крестики Нолики"
+GraphicsWindow.Width = w
+GraphicsWindow.Height = w
+GraphicsWindow.CanResize = "False"
+
+GraphicsWindow.PenWidth = 5
+GraphicsWindow.DrawLine(0, w/3, w, w/3)
+GraphicsWindow.DrawLine(0, w*2/3, w, w*2/3)
+GraphicsWindow.DrawLine(w/3, 0, w/3, w)
+GraphicsWindow.DrawLine(w*2/3, 0, w*2/3, w)
+
+GraphicsWindow.MouseDown = onMouseDown
+
+Sub onMouseDown
+  x = GraphicsWindow.MouseX
+  y = GraphicsWindow.MouseY
+  
+  If x < w/3 And y < w/3 Then '  I квадрат
+    GraphicsWindow.DrawLine(0, 0, w/3, w/3)
+    GraphicsWindow.DrawLine(0, w/3, w/3, 0)
+  ElseIf условие Then ' II квадрат
+    
+  ElseIf условие Then ' III квадрат
+    
+  ElseIf условие Then ' IV квадрат
+    
+  ElseIf условие Then ' V квадрат
+    
+  ElseIf условие Then ' VI квадрат
+    
+  ElseIf условие Then ' VII квадрат
+    
+  ElseIf условие Then ' VIII квадрат
+    
+  ElseIf условие Then ' IX квадрат
+    
+  EndIf
+  
+EndSub
+  

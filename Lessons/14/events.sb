@@ -1,0 +1,59 @@
+Turtle.Show()
+
+'События объекта GraphicsWindow
+
+' Работа с клавиатурой
+' 1. Происходит, когда пользователь нажимает клавишу на клавиатуре.
+GraphicsWindow.KeyDown = onKeyDown
+
+Sub onKeyDown
+  key = GraphicsWindow.LastKey
+  If key = "Up" Then    
+    Turtle.Angle = 0
+    Turtle.Move(10)
+  ElseIf key = "Right" Then
+    Turtle.Angle = 90
+    Turtle.Move(10)
+  ' Повернуть влево и вниз
+  ElseIf key = "Space" Then
+    ' Выбрать случайный цвет
+    GraphicsWindow.PenColor = "green"
+  EndIf  
+EndSub
+
+' 2. Происходит, когда пользователь отпускает клавишу на клавиатуре.
+' GraphicsWindow.KeyUp
+
+'3. Свойство LastKey хранит последнюю нажатую или отпущенную клавишу
+' GraphicsWindow.LastKey
+
+
+
+' События мышки
+'Наступает при нажатии кнопки мыши.
+GraphicsWindow.MouseDown = onMouseDown
+
+' Операция, которая будет вызвана при каждом событии нажатия кнопкой мыши
+Sub onMouseDown
+  x = GraphicsWindow.MouseX
+  y = GraphicsWindow.MouseY
+  'GraphicsWindow.DrawText(x, y, "(" + x + ", " + y + ")")
+  GraphicsWindow.PenWidth = 5
+  d = Math.GetRandomNumber(50) + 4
+  GraphicsWindow.PenColor = GraphicsWindow.GetRandomColor()
+  GraphicsWindow.DrawEllipse(x - d/2, y - d/2, d, d)
+EndSub
+
+'Наступает при нажатии кнопки мыши.
+'5. GraphicsWindow.MouseUp
+
+' Наступает  при перемещении мыши.
+' 6. GraphicsWindow.MouseMove
+
+' Свойство MouseX хранит координату Х курсора мыши
+' 7. GraphicsWindow.MouseX
+
+' Свойство MouseY хранит координату Y курсора мыши
+'8. GraphicsWindow.MouseY
+
+
