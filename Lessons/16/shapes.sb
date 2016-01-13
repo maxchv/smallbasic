@@ -1,0 +1,32 @@
+x = 0
+y = 0
+dx = 1
+dy = 1
+r = 50
+'GraphicsWindow.FillEllipse(x, y, 100, 100)
+'While y < GraphicsWindow.Height
+'  x = x + dx
+'  y = y + dy
+'  GraphicsWindow.FillEllipse(x, y, 100, 100)
+'  Program.Delay(10)
+'  GraphicsWindow.Clear()
+'EndWhile
+
+GraphicsWindow.BrushColor = GraphicsWindow.GetRandomColor()
+GraphicsWindow.PenColor = GraphicsWindow.GetRandomColor()
+
+v = 0.1 ' скорость
+мяч = Shapes.AddEllipse(r*2, r*2)
+GraphicsWindow.MouseDown = onMouseDown
+Sub onMouseDown
+  x1 = GraphicsWindow.MouseX
+  y1 = GraphicsWindow.MouseY
+  x2 = Shapes.GetLeft(мяч) ' координаты объекта
+  y2 = Shapes.GetTop(мяч)
+  'Shapes.Move(мяч, x, y)
+  
+  d = Math.SquareRoot(Math.Power(x1 - x2, 2) + Math.Power(y1 - y2, 2))
+  t = d / v  
+  Shapes.Animate(мяч, x1, y1, t)
+EndSub
+

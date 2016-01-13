@@ -1,0 +1,13 @@
+
+GraphicsWindow.KeyDown = onKeyDown
+
+Sub onKeyDown
+  key = GraphicsWindow.LastKey
+  x = Shapes.GetLeft(<объект>)
+  y = Shapes.GetTop(<объект>)
+  If key = "Right" Then
+    Shapes.Move(pacman, x + 10, y)
+  EndIf
+EndSub
+
+  

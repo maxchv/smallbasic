@@ -1,0 +1,10 @@
+fname = Program.Directory + "/animals.txt"
+
+For i=1 To 8
+  animal[i] = File.ReadLine(fname, i)
+EndFor
+
+GraphicsWindow.FontSize = 20
+For i=1 To Array.GetItemCount(animal)
+  GraphicsWindow.DrawText(10, 25*i, animal[i])
+EndFor

@@ -1,0 +1,2 @@
+tmp = File.GetTemporaryFilePath()
+TextWindow.WriteLine(tmp)

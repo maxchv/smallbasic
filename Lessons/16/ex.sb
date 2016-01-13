@@ -1,0 +1,19 @@
+установлен_крестик = "True"
+r = 30
+GraphicsWindow.MouseDown = onMouseDown
+
+Sub onMouseDown
+  x = GraphicsWindow.MouseX
+  y = GraphicsWindow.MouseY
+  If установлен_крестик = "True" Then
+    ' рисовать нулик
+    GraphicsWindow.DrawEllipse(x - r, y - r, 2*r, 2*r)
+    установлен_крестик = "False"
+  Else
+    ' рисовать крестик
+    GraphicsWindow.DrawLine(x-r, y-r, x+r, y+r)
+    GraphicsWindow.DrawLine(x-r, y+r, x+r, y-r)
+    установлен_крестик = "True"
+  EndIf  
+EndSub
+  

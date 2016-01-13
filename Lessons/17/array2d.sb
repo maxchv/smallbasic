@@ -1,0 +1,18 @@
+' инициализация игрового поля
+For i=1 To 3
+  For j=1 To 3
+    m[i][j] = 0
+    TextWindow.Write(m[i][j] + " ")
+  EndFor
+  TextWindow.WriteLine(" ")
+EndFor
+
+m[1][1] = 1
+m[2][2] = 2
+
+For i=1 To 3
+  For j=1 To 3   
+    TextWindow.Write(m[i][j] + " ")
+  EndFor
+  TextWindow.WriteLine(" ")
+EndFor

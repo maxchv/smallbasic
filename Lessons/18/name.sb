@@ -1,0 +1,8 @@
+fname = Program.Directory+"/name.txt"
+
+name = File.ReadContents(fname)
+TextWindow.WriteLine("В прошлый раз тебя звали " + name)
+
+TextWindow.WriteLine("Как тебя зовут сейчас? ")
+name = TextWindow.Read()
+File.WriteContents(fname, name)

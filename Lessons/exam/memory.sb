@@ -1,0 +1,129 @@
+' Процедура подготовки графического окна
+Sub InitGraphics  
+  ' Очистить экран
+  GraphicsWindow.Clear()
+  ' Задать размер шрифта графического окна равным 20
+  GraphicsWindow.FontSize = 20
+  ' Здать цвет кисти "Black"
+  GraphicsWindow.BrushColor = "Black"
+  ' Добавить текст "Moves = 0"
+  MovesText = Shapes.AddText("Moves = 0")  
+  ' Переместить текст в поизицию x = 10, y = 130
+  Shapes.Move(MovesText, 10, 130)
+  ' Задать цвет фона "White"
+  GraphicsWindow.BackgroundColor = "White"
+  ' Задать ширину окна равную NumCards * 50
+  GraphicsWindow.Width = NumCards * 50
+  ' Задать высоту окна равную 180
+  GraphicsWindow.Height = 180
+  ' Установить заголовок окна "Игра Память"
+  GraphicsWindow.Title = "Игра Память"
+  'Запретить изменять размер окна
+  GraphicsWindow.CanResize = "False"
+  'Задать размер шрифта графического окна равным 30
+  GraphicsWindow.FontSize = 30   
+EndSub
+
+' Процедура подготовки данных игры
+Sub Init
+  NumCards = 16 ' количество карточек
+  MOVES = 1     ' количество попыток
+  STATE = 0     ' состояние
+  PREV = -1     ' предыдущая открытая карточка
+  PREVPREV = -1 ' перед предыдущей открытая карточка
+  'Заполнение массива чисел последовательно от 1 до 8
+  For i=1 To NumCards/2
+    vals[i] = i  
+  EndFor
+  'Заполнение массива чисел последовательно от 1 до 8
+  For i=1 To NumCards/2
+    vals[i+NumCards/2] = i  
+  EndFor
+  
+  'Перемешиваем значения карт
+  For i=1 To NumCards
+    first = Math.GetRandomNumber(NumCards)
+    second = Math.GetRandomNumber(NumCards)
+    tmp = vals[first]
+    vals[first] = vals[second]
+    vals[second] = tmp
+  EndFor
+  ' Заполняем массив открытых карточек. Если True - карточка открыта
+  ' Если False - карточка закрыта
+  For i=1 To NumCards
+    CARDS[i] = "False"
+  EndFor 
+  InitGraphics()
+EndSub
+  
+Sub Draw 
+  For i=0 To NumCards-1    
+    ' Задать цвет кисти "Green"
+    GraphicsWindow.BrushColor = "Green"
+    ' Нарисовать заполненный прямоугольник в точке  x = i*50,  y = 0, шириной 50 и высотой 100
+    GraphicsWindow.FillRectangle(i*50, 0, 50, 100)
+    ' Задать цвет пера "Red"
+    GraphicsWindow.PenColor = "Red"
+    ' Нарисовать прямоугольник в точке  x = i*50,  y = 0, шириной 50 и высотой 100
+    GraphicsWindow.DrawRectangle(i*50, 0, 50, 100)
+    If CARDS[i+1] = "True" Then
+      ' Задать цвет кисти "Black"
+      GraphicsWindow.BrushColor = "Black"      
+      ' Нарисовать заполненный прямоугольник в точке  x = i*50,  y = 0, шириной 50 и высотой 100
+      GraphicsWindow.FillRectangle(i*50, 0, 50, 100) 
+      ' Задать цвет кисти "White"
+      GraphicsWindow.BrushColor = "White"     
+      '  Отобразить текстовую строку vals[i+1] в позиции x = i*50+15, y = 30
+      GraphicsWindow.DrawText(i*50 + 15, 30, vals[i+1])
+    EndIf    
+  EndFor    
+EndSub
+
+' Процедура проверки окончания игры
+Sub CheckFin  
+  finish = "True"
+  For i=1 To NumCards
+    If CARDS[i] = "False" Then ' Если хотябы одна карточка закрыта
+      finish = "False"         ' Игра не закончена
+    EndIf
+  EndFor  
+  If finish = "True" Then
+    GraphicsWindow.ShowMessage("Вы прошли игру за " + MOVES + " попыток", "Конец игры")    
+    Init()
+    Draw()
+  EndIf    
+EndSub
+
+Init()
+Draw()
+
+GraphicsWindow.MouseDown = onMouseDown
+
+Sub onMouseDown
+  ' Получить положение курсора мышки по оси x
+  x = GraphicsWindow.MouseX
+  CURR = Math.Ceiling(x / 50) 
+  If CARDS[CURR] = "False" Then
+    CARDS[CURR] = "True"
+    If STATE = 0 Then
+      STATE = 1
+    ElseIf STATE = 1 Then
+      STATE = 2
+    Else
+      If vals[PREV] <> vals[PREVPREV] Then
+        CARDS[PREV] = "False"
+        CARDS[PREVPREV] = "False"        
+      EndIf
+      STATE = 1
+      MOVES = MOVES + 1
+    EndIf
+    Shapes.SetText(MovesText, "Moves = " + MOVES)
+    PREVPREV = PREV
+    PREV = CURR  
+  EndIf
+  ' Вызвать процедуру Draw()
+  Draw()
+  ' Вызвать процедуру CheckFin()
+  CheckFin()
+EndSub
+  
